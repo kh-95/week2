@@ -23,20 +23,25 @@ function  Clean($input){
                 $status = false;
              }
              break;
-       
+       // validate title --string--
        case 2:
-          if(!date($input)){
+          if(!is_string($input)){
 
             $status=false;
           }
           break;
    
         case 3: 
-            if(!filter_var($input,FILTER_VALIDATE_INT)){
+            if(!strlen($input) > 100){
                 $status = false;
             }
             break;
+case 4:
+  if(is_int($input)){
 
+    $status=true;
+  }
+  break;
      }
 
      return $status;
